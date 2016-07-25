@@ -1,6 +1,6 @@
 <?php 
     header("Content-Type: text/html; charset=utf8");
-
+    
     if(!isset($_POST['submit'])){
         exit("错误执行");
     }//判断是否有submit操作
@@ -8,28 +8,17 @@
     $name=$_POST['name'];//post获取表单里的name
     $password=$_POST['password'];//post获取表单里的password
 
-
-    
     if(!($name && $password)){
-
-
         echo "用户名密码不能为空";
              echo "
                 <script>
                         setTimeout(function(){window.location.href='signup.html';},1000);
                  </script>
             ";
-            
     }else {
-
-
-        
         $sql = "select * from user where username = '$name'";//检测数据库是否有对应的username和password的sql
         $resulta = mysql_query($sql);//执行sql
         $rows=mysql_num_rows($resulta);//返回一个数值
-        
-        
-        
     }
 
     if(!$rows){
@@ -55,9 +44,6 @@
                  </script>
             ";
     }
-
-
-
-
+    
     mysql_close($con);//关闭数据库
 ?>
